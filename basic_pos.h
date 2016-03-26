@@ -7,6 +7,7 @@ class Basic_Pos
 public:
     typedef T value_type;
 public:
+    Basic_Pos() = default;
     Basic_Pos(value_type r, value_type c):row(r), col(c) {}
     value_type row;
     value_type col;

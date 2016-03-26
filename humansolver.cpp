@@ -17,7 +17,7 @@ ScoreCalc HumanSolver::solve(Matrix m)
 
         int num=0;
         Matrix::value_type v;
-        Pos p(0, 0);
+        Pos p;
         do
         {
             cin >> p;
