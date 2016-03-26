@@ -34,10 +34,10 @@ void MatrixGame::moveEmptyCol(Matrix &m)
     //如果全是空行，或者有值的行已经在左端（所有空行在最右边）
     //减少很多次赋值
     if (noEmptyCols.empty()
-            || noEmptyCols.back() == noEmptyCols.size()-1)
+            || size_t(noEmptyCols.back()) == noEmptyCols.size()-1)
         return;
 
-    for (int c=0; c<noEmptyCols.size(); ++c)
+    for (int c=0; size_t(c)<noEmptyCols.size(); ++c)
     {
         if (c!=noEmptyCols[c])
         { moveCol(m, c, noEmptyCols[c]); }
