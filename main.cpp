@@ -38,9 +38,9 @@ void testCalAll(Matrix m)
 }
 void testRandSolve(Matrix m)
 {
-    int k=8*10000;
+    int k=30*10000;
     ScoreCalcContainer container;
-    container.setPrintStep(2*10000);
+    container.setPrintStep(5*10000);
     RNDSolver solver;
     cout << m;
     while (k-->0)
@@ -54,23 +54,6 @@ void testLengthSolve(Matrix m)
     cout << m;
     CreateLengthSolver s;
     s.solve(m, ScoreCalc() , 2);
-}
-
-
-class CA
-{
-public:
-    CA():c(0){}
-    void add() { ++c; }
-    void print() const { cout<<"print: "<<c<<endl; }
-private:
-    int c;
-};
-
-void testCA( CA* ca)
-{
-    cout <<"thread: "<< this_thread::get_id()<<endl;
-    ca->add();
 }
 
 int main()
@@ -90,9 +73,9 @@ int main()
     Matrix m = MatrixInput::fromString(str);
 //    m = MatrixGenerator::gen();
 //    cout << HumanSolver::solve(m)<<endl;
-//    testRandSolve(m);
+    testRandSolve(m);
 //    cout<<m;
-    testCalAll(m);
+//    testCalAll(m);
 //    testLengthSolve(m);
 //    testThread();
     cout<<"exit!"<<endl;

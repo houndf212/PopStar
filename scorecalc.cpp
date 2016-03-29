@@ -26,9 +26,23 @@ int ScoreCalc::geScore() const
     return s1;
 }
 
+int ScoreCalc::getLeft() const
+{
+    int n = Matrix::row_size() * Matrix::col_size();
+    for (auto it=lst.begin(); it!=lst.cend(); ++it)
+    {
+        int s = std::get<2>(*it);
+        n -= s;
+    }
+    return n;
+}
+
 ostream &operator<<(ostream &os, const ScoreCalc &sc)
 {
-    os << "score: "<<sc.geScore()<<", moves: "<<sc.lst.size()<<endl;
+    os << "score: "<<sc.geScore()
+       <<", moves: "<<sc.lst.size()
+      <<", left: "<<sc.getLeft()
+      <<endl;
     int i=0;
     for(auto it=sc.lst.cbegin(); it!=sc.lst.cend(); ++it)
     {

@@ -13,6 +13,7 @@ class ScoreCalc
 public:
     void put(Pos p, Matrix::value_type v, int n);
     int geScore() const;
+    int getLeft() const;
 private:
     ClickList lst;
 };
