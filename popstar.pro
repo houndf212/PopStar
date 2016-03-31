@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     scorecalccontainer.cpp \
     matrixinput.cpp \
     rndsolver.cpp \
-    createlengthsolver.cpp
+    createlengthsolver.cpp \
+    maxfinder.cpp
 
 HEADERS += \
     matrix.h \
@@ -31,5 +32,6 @@ HEADERS += \
     scorecalccontainer.h \
     matrixinput.h \
     rndsolver.h \
-    createlengthsolver.h
+    createlengthsolver.h \
+    maxfinder.h
 

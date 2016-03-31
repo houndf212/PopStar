@@ -8,7 +8,7 @@ class RNDSolver
 {
 public:
     RNDSolver();
-    ScoreCalc solve(Matrix m, ScoreCalc calc);
+    ScoreCalc solve(Matrix m, ScoreCalc calc, int left);
 private:
     std::default_random_engine rng;
 };

@@ -19,5 +19,9 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const ScoreCalc& sc);
+inline bool operator<(const ScoreCalc& s1, const ScoreCalc& s2)
+{
+    return s1.geScore() < s2.geScore();
+}
 
 #endif // SCORECALC_H

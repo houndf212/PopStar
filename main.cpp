@@ -38,15 +38,17 @@ void testCalAll(Matrix m)
 }
 void testRandSolve(Matrix m)
 {
-    int k=30*10000;
+    int k=5*1;
     ScoreCalcContainer container;
-    container.setPrintStep(5*10000);
+    container.setPrintStep(1*2);
     RNDSolver solver;
     cout << m;
-    while (k-->0)
-    {
-        container.addScoreCalc(solver.solve(m, ScoreCalc()));
-    }
+//    while (k-->0)
+//    {
+//        container.addScoreCalc(solver.solve(m, ScoreCalc(), 5));
+//    }
+    cout << solver.solve(m, ScoreCalc(), 3);
+
 }
 
 void testLengthSolve(Matrix m)
