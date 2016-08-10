@@ -34,7 +34,7 @@ void MatrixSlice::slice(const Matrix &m)
         for (int c=0; c<m.col_size(); ++c)
         {
             Pos p(r, c);
-            if (isFlaged(p))
+            if (isFlagged(p))
                 continue;
 
             if (m(p) == Matrix_Blank)
@@ -48,7 +48,7 @@ void MatrixSlice::slice(const Matrix &m)
                  if (s.size() == 1)
                  {
                      assert (s.front() == p);
-                     slicematrix(p) = Matrix_Alone_Pos;
+                     setAloneGroup(p);
                  }
                  else
                  {
@@ -63,7 +63,7 @@ void MatrixSlice::slice(const Matrix &m)
 
 void MatrixSlice::seedPos(const Matrix &m, Pos p, Group *ps, Matrix::value_type v, int group)
 {
-    if (m.isInMatrix(p) && !isFlaged(p) && m(p) == v)
+    if (m.isInMatrix(p) && !isFlagged(p) && m(p) == v)
     {
         slicematrix(p) = group;
         ps->push_back(p);
