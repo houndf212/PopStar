@@ -16,7 +16,7 @@ Matrix MatrixGenerator::gen(int n)
     {
         for (int c=0; c<m.col_size(); ++c)
         {
-            m(Pos(r, c)) = dist(rng);
+            m.set(Pos(r, c), dist(rng));
         }
     }
     return m;

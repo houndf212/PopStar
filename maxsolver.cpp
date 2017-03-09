@@ -18,7 +18,7 @@ ScoreCalc MaxSolver::solve(const Matrix &m, const ScoreCalc &calc)
     for (auto it=moves.cbegin(); it!=moves.cend(); ++it)
     {
         Pos p = (*it).front();
-        Matrix::value_type v = m(p);
+        Matrix::value_type v = m.get(p);
         Matrix lm = m;
         ScoreCalc sc = calc;
         int n = MatrixGame::removePosSet(lm, *it);
@@ -46,7 +46,7 @@ void MaxSolver::solve_r(const Matrix& m, const ScoreCalc& score)
         for (auto it=moves.cbegin(); it!=moves.cend(); ++it)
         {
             Pos p = (*it).front();
-            Matrix::value_type v = m(p);
+            Matrix::value_type v = m.get(p);
             Matrix lm = m;
             ScoreCalc sc = score;
             int n = MatrixGame::removePosSet(lm, *it);

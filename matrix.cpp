@@ -17,7 +17,7 @@ std::ostream &operator<<(std::ostream &os, const Matrix &m)
         os<<r << "| ";
         for (int c=0; c<m.col_size(); ++c)
         {
-            os<<std::setw(2)<< int(m(Pos(r, c)));
+            os<<std::setw(2)<< int(m.get(Pos(r, c)));
             os<<" ";
         }
         os<<endl;

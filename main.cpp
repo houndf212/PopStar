@@ -74,7 +74,7 @@ int main()
             ;
     Matrix m = MatrixInput::fromString(str);
 //    m = MatrixGenerator::gen();
-//    cout << HumanSolver::solve(m)<<endl;
+    cout << HumanSolver::solve(m)<<endl;
     testRandSolve(m);
 //    cout<<m;
 //    testCalAll(m);

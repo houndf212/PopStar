@@ -25,7 +25,7 @@ ScoreCalc RNDSolver::solve(Matrix m, ScoreCalc calc, int left)
             int r = std::uniform_int_distribution<int>(0, mc-1)(rng);
             Group g = s.getGroup(r);
             Pos p = g.front();
-            Matrix::value_type v = m(p);
+            Matrix::value_type v = m.get(p);
             int n = MatrixGame::removePosSet(m, g);
             calc.put(p, v, n);
         }

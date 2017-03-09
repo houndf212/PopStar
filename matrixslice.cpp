@@ -14,14 +14,14 @@ bool MatrixSlice::isOver() const
 bool MatrixSlice::canClick(Pos p) const
 {
     assert(slicematrix.isInMatrix(p));
-    int group = slicematrix(p);
+    int group = slicematrix.get(p);
     return group > Matrix_Alone_Pos;
 }
 
 Group MatrixSlice::getGroup(Pos p) const
 {
     assert(slicematrix.isInMatrix(p));
-    int group = slicematrix(p);
+    int group = slicematrix.get(p);
     return groupVec[group-Matrix_Alone_Pos-1];
 }
 
@@ -37,14 +37,14 @@ void MatrixSlice::slice(const Matrix &m)
             if (isFlagged(p))
                 continue;
 
-            if (m(p) == Matrix_Blank)
+            if (m.get(p) == Matrix_Blank)
             {
-                slicematrix(p) = Matrix_Blank;
+                slicematrix.set(p, Matrix_Blank);
             }
             else
             {
                  Group s;
-                 seedPos(m, p, &s, m(p), groupNum);
+                 seedPos(m, p, &s, m.get(p), groupNum);
                  if (s.size() == 1)
                  {
                      assert (s.front() == p);
@@ -63,9 +63,9 @@ void MatrixSlice::slice(const Matrix &m)
 
 void MatrixSlice::seedPos(const Matrix &m, Pos p, Group *ps, Matrix::value_type v, int group)
 {
-    if (m.isInMatrix(p) && !isFlagged(p) && m(p) == v)
+    if (m.isInMatrix(p) && !isFlagged(p) && m.get(p) == v)
     {
-        slicematrix(p) = group;
+        slicematrix.set(p, group);
         ps->push_back(p);
         seedPos(m, Pos(p.row, p.col-1), ps, v, group);
         seedPos(m, Pos(p.row, p.col+1), ps, v, group);

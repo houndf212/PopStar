@@ -7,7 +7,7 @@ Matrix MatrixInput::fromString(std::string str)
     assert(str.size() == Matrix::row_size()*Matrix::col_size());
     int num=0;
     map<char, int> mp;
-    for (int i=0; size_t(i)<str.size(); ++i)
+    for (size_t i=0; i<str.size(); ++i)
     {
         char c = str[i];
         if (mp.find(c) == mp.cend())
@@ -24,7 +24,7 @@ Matrix MatrixInput::fromString(std::string str)
     for(int row=0; row<m.row_size(); ++row)
         for(int col=0; col<m.col_size(); ++col)
         {
-            m(Pos(row, col)) = int(str[row*m.col_size() + col]);
+            m.set(Pos(row, col), int(str[row*m.col_size() + col]));
         }
 
     return m;

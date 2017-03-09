@@ -12,19 +12,20 @@ public:
     typedef _T value_type;
     typedef value_type& ref_type;
 public:
+    template<class U>
+    value_type get(Basic_Pos<U> p) const
+    {
+        assert(isInMatrix(p));
+        return m[p.row][p.col];
+    }
 
     template<class U>
-    value_type operator()(Basic_Pos<U> p) const
+    void set(Basic_Pos<U> p, value_type v)
     {
         assert(isInMatrix(p));
-        return m[p.row][p.col];
+        m[p.row][p.col] = v;
     }
-    template<class U>
-    ref_type operator()(Basic_Pos<U> p)
-    {
-        assert(isInMatrix(p));
-        return m[p.row][p.col];
-    }
+
     void setAll(value_type v)
     {
         for (int r=0; r<row_size(); ++r)

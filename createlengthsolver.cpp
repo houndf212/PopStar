@@ -47,7 +47,7 @@ GroupContainer CreateLengthSolver::removeColor(const Matrix &m, const GroupConta
     GroupContainer ret;
     for (auto it=moves.cbegin(); it!=moves.cend(); ++it)
     {
-        if (m((*it).front()) != solve_color)
+        if (m.get((*it).front()) != solve_color)
             ret.push_back(*it);
     }
     if (ret.empty())
@@ -71,7 +71,7 @@ void CreateLengthSolver::solve_r(const Matrix &m, const ScoreCalc &score)
         for (auto it=moves.cbegin(); it!=moves.cend(); ++it)
         {
             Pos p = (*it).front();
-            auto v = m(p);
+            auto v = m.get(p);
             Matrix lm = m;
             ScoreCalc sc = score;
             int n = MatrixGame::removePosSet(lm, *it);
@@ -87,7 +87,7 @@ int CreateLengthSolver::getColors(const Matrix &m, int color)
     for (int r=0; r<m.row_size(); ++r)
         for(int c=0; c<m.col_size(); ++c)
         {
-            if (m(Pos(r, c)) == color)
+            if (m.get(Pos(r, c)) == color)
                 ++ret;
         }
 

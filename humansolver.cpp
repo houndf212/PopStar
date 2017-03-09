@@ -21,7 +21,7 @@ ScoreCalc HumanSolver::solve(Matrix m)
         do
         {
             cin >> p;
-            v = m(p);
+            v = m.get(p);
             num = clickPos(m, p);
             if (num == 0)
                 cout<< "wrong point, try again!"<<endl;
